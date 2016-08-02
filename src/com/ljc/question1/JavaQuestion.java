@@ -7,7 +7,7 @@ public class JavaQuestion {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		ArrayList<Integer> result=new ArrayList<Integer>();
-		result=getPrime(1, 20);
+		result=getNarcissistic(100, 999);
 		for(Integer tmp:result){
 			System.out.println(tmp);
 		}
@@ -46,10 +46,23 @@ public class JavaQuestion {
 					result.add(j);
 				}
 			}
-		
-		
-	}
+		}
 		return result;
-}
+	}
+	
+	public static ArrayList<Integer> getNarcissistic(int beginNum,int endNum) {
+		ArrayList<Integer> result=new ArrayList<Integer>();
+		if(beginNum<100||beginNum>999||endNum<100||endNum>999||beginNum>endNum) 
+			System.out.println("²ÎÊı´íÎó");
+		for(int j=beginNum;j<=endNum;j++){
+			int one=j%10;
+			int ten=(j%100)/10;
+			int hundred=j/100;
+			if(j==one*one*one+ten*ten*ten+hundred*hundred*hundred)
+				result.add(j);
+		}
+		return result;
+	}
+	
 }
 
